@@ -1,11 +1,11 @@
-import { Component, ElementRef, Input, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
+import { Component, DoCheck, ElementRef, Input, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-child',
   templateUrl: './child.component.html',
   styleUrls: ['./child.component.css']
 })
-export class ChildComponent implements OnChanges ,OnInit {
+export class ChildComponent implements OnChanges ,OnInit ,DoCheck {
   constructor() {
     console.log('child constructor is called');
     console.log(this.data);
@@ -22,4 +22,8 @@ export class ChildComponent implements OnChanges ,OnInit {
 console.log(this.para);
    }
   
+  
+  ngDoCheck(): void {
+    console.log('child ngDo check is called');
+  }
 }
